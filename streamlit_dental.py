@@ -327,7 +327,7 @@ if selected_treatments:
             st.write(f"**Total Cost: £{total_cost:.2f}**")
 
 # Create PDF button
-if st.button("Create PDF"):
+if selected_treatments and st.button("Create PDF"):
     pdf = FPDF()
     pdf.add_page()
     
