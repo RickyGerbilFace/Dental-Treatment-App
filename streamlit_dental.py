@@ -78,7 +78,7 @@ lower_left = ['LL1', 'LL2', 'LL3', 'LL4', 'LL5', 'LL6', 'LL7', 'LL8']
 teeth_status = {}
 
 # Create three columns: one for upper right, one as a spacer, and one for upper left
-col1, spacer, col2 = st.columns([2.1, 0.01, 2])  # Adjust the size of columns: 8 for content, 1 for space
+col1, spacer, col2 = st.columns([2.2, 0.01, 2])  # Adjust the size of columns: 8 for content, 1 for space
 
 # Display Upper Right Teeth in the first column
 with col1:
@@ -99,7 +99,7 @@ with col2:
         teeth_status[tooth] = cols[i].checkbox(f"{tooth}", key=tooth)
 
 # Create three columns: one for lower right, one as a spacer, and one for lower left
-col3, spacer2, col4 = st.columns([2.1, 0.01, 2])  # Adjust the size of columns: 8 for content, 1 for space
+col3, spacer2, col4 = st.columns([2.2, 0.01, 2])  # Adjust the size of columns: 8 for content, 1 for space
 
 # Display lower Right Teeth in the first column
 with col3:
