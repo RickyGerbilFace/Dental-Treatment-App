@@ -193,7 +193,12 @@ with st.container(height=530):
                         step=10,
                         key=f"lab_fee_{tooth}"
                     )
-                    cost = time_required * 5.5 + lab_fee
+                    # Determine rate for stabiliation phase
+                    if treatment_option == "Specialist extraction":
+                        xla_rate = 400 / 60
+                    else:
+                        xla_rate = 5.5
+                    cost = time_required * xla_rate + lab_fee
                     col_cost.text_input("Cost", value=f"£{cost:.2f}", disabled=True, key=f"cost_{tooth}_stab")
                     total_cost += cost
                     stabilisation_data.append((tooth, treatment_option, col_lab_fee, time_required, cost))
@@ -249,7 +254,14 @@ with st.container(height=530):
                         step=10,
                         key=f"time_{tooth}_rest"
                     )
-                    cost_3 = time_required_3 * 5.5 + lab_fee_3
+                    # Determine rate for restoration phase
+                    if restoration_option == "Implant":
+                        rate = 4000 / 60
+                    elif restoration_option == "Root canal treatment":
+                        rate = 1000 / 60
+                    else:
+                        rate = 5.5
+                    cost_3 = time_required_3 * rate + lab_fee_3
                     col_cost_3.text_input("Cost", value=f"£{cost_3:.2f}", disabled=True, key=f"cost_3_{tooth}_rest")
                     total_cost += cost_3
                     selected_treatments.append(("Restoration Phase", map_tooth_code(tooth), restoration_option, cost_3))
@@ -318,13 +330,13 @@ def display_summary_by_phase(phase, treatments, pdf=None):
 
 if selected_treatments:
     st.markdown("## Dental Treatment Plan Quotation")
-    additional_info = st.text_area("Enter any additional text required for the quotation here and press ctrl + enter to apply", height=50)
+    additional_info = st.text_area("Enter any additional text required for the quotation here. IMPORTANT - Press ctrl + enter to apply", height=50)
     for phase in ["Stabilisation Phase", "Restoration Phase", "Rehabilitation Phase"]:
         phase_treatments = [t for t in selected_treatments if t[0] == phase]
         if phase_treatments:
             display_summary_by_phase(phase, phase_treatments)
-            # Display total cost at the bottom of the summary
-            st.write(f"**Total Cost: £{total_cost:.2f}**")
+    # Display total cost at the bottom of the summary
+    st.write(f"**Total Cost: £{total_cost:.2f}**")
 
 # Create PDF button
 if selected_treatments and st.button("Create PDF"):
