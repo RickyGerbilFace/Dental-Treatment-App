@@ -39,8 +39,8 @@ tooth_descriptions = {
     'LL6' : 'First lower left molar',
     'LL7' : 'Second lower left molar',
     'LL8' : 'Third lower left molar',
-    'U Arch' : 'Upper arch',
-    'L Arch' : 'Lower arch'
+    'UA' : 'Upper arch',
+    'LA' : 'Lower arch'
 }
 
 # Function to map tooth codes to descriptions
@@ -69,9 +69,9 @@ total_cost = 0
 st.divider()
 
 # Define a structure for upper and lower teeth, organized by quadrants
-upper_right = ['U Arch', 'UR8', 'UR7', 'UR6', 'UR5', 'UR4', 'UR3', 'UR2', 'UR1']
+upper_right = ['UA', 'UR8', 'UR7', 'UR6', 'UR5', 'UR4', 'UR3', 'UR2', 'UR1']
 upper_left = ['UL1', 'UL2', 'UL3', 'UL4', 'UL5', 'UL6', 'UL7', 'UL8']
-lower_right = ['L Arch', 'LR8', 'LR7', 'LR6', 'LR5', 'LR4', 'LR3', 'LR2', 'LR1']
+lower_right = ['LA', 'LR8', 'LR7', 'LR6', 'LR5', 'LR4', 'LR3', 'LR2', 'LR1']
 lower_left = ['LL1', 'LL2', 'LL3', 'LL4', 'LL5', 'LL6', 'LL7', 'LL8']
 
 # Create empty dictionary to store treatment status
@@ -129,8 +129,8 @@ with st.container(height=530):
     for tooth, selected in teeth_status.items():
         if selected:
             tooth_data = {"Tooth": tooth, "Treatments": []}
-            # Check if U Arch or L Arch is selected for Denture path
-            if tooth in ['U Arch', 'L Arch']:
+            # Check if UA or LA is selected for Denture path
+            if tooth in ['UA', 'LA']:
                 st.subheader(f"Treatment for {tooth} ({map_tooth_code(tooth)})")
                 col_treatment, col_time, col_lab_fee, col_cost = st.columns([2, 1, 1, 1])
                 treatment_option = col_treatment.selectbox(
