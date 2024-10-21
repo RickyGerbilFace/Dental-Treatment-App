@@ -82,7 +82,7 @@ col1, spacer, col2 = st.columns([2, 0.1, 2])  # Adjust the size of columns: 8 fo
 
 # Display Upper Right Teeth in the first column
 with col1:
-    st.write("‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Upper Right Teeth")
+    st.write("‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Upper Right Teeth")
     cols = st.columns(9)  # Create 8 columns for the 8 upper right teeth
     for i, tooth in enumerate(upper_right):
         teeth_status[tooth] = cols[i].checkbox(f"{tooth}", key=tooth)
@@ -103,7 +103,7 @@ col3, spacer2, col4 = st.columns([2, 0.1, 2])  # Adjust the size of columns: 8 f
 
 # Display lower Right Teeth in the first column
 with col3:
-    st.write("‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Lower Right Teeth")
+    st.write("‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Lower Right Teeth")
     cols = st.columns(9)  # Create 8 columns for the 8 lower right teeth
     for i, tooth in enumerate(lower_right):
         teeth_status[tooth] = cols[i].checkbox(f"{tooth}", key=tooth)
