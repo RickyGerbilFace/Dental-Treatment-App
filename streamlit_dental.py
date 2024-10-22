@@ -328,7 +328,7 @@ def display_summary_by_phase(phase, treatments, pdf=None):
 
 if selected_treatments:
     st.markdown("## Dental Treatment Plan Quotation")
-    additional_info = st.text_area("Enter any additional text required for the quotation here. IMPORTANT - Press ctrl + enter to apply", height=50)
+    additional_info = st.text_area("Enter any additional text required for the quotation here.", height=50)
     for phase in ["Stabilisation Phase", "Restoration Phase", "Rehabilitation Phase"]:
         phase_treatments = [t for t in selected_treatments if t[0] == phase]
         if phase_treatments:
