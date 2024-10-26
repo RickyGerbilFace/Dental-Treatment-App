@@ -138,7 +138,8 @@ with st.container(height=530):
             tooth_data = {"Tooth": tooth, "Treatments": []}
             # Check if UA or LA is selected for Denture path
             if tooth in ['UA', 'LA']:
-                st.subheader(f"Treatment for {tooth} ({map_tooth_code(tooth)})")
+                #st.subheader(f"Treatment for {tooth} ({map_tooth_code(tooth)})")
+                st.markdown(f"<div style='font-size:16px; font-weight:bold;'>Treatment for {tooth} ({map_tooth_code(tooth)})</div>", unsafe_allow_html=True)
                 col_treatment, col_time, col_lab_fee, col_cost = st.columns([2, 1, 1, 1])
                 treatment_option = col_treatment.selectbox(
                     "Treatment Required",
