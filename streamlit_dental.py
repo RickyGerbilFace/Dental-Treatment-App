@@ -7,38 +7,38 @@ st.set_page_config(layout="wide", page_icon="🪥", page_title="Dental Treatment
 
 # Tooth descriptions dictionary
 tooth_descriptions = {
-    'UR1' : 'First upper right incisor',
-    'UR2' : 'Second upper right incisor',
-    'UR3' : 'Upper right canine',
-    'UR4' : 'First upper right premolar',
-    'UR5' : 'Second upper right premolar',
-    'UR6' : 'First upper right molar',
-    'UR7' : 'Second upper right molar',
-    'UR8' : 'Third upper right molar',
-    'UL1' : 'First upper left incisor',
-    'UL2' : 'Second upper left incisor',
-    'UL3' : 'Upper left canine',
-    'UL4' : 'First upper left premolar',
-    'UL5' : 'Second upper left premolar',
-    'UL6' : 'First upper left molar',
-    'UL7' : 'Second upper left molar',
-    'UL8' : 'Third upper left molar',
-    'LR1' : 'First lower right incisor',
-    'LR2' : 'Second lower right incisor',
-    'LR3' : 'lower right canine',
-    'LR4' : 'First lower right premolar',
-    'LR5' : 'Second lower right premolar',
-    'LR6' : 'First lower right molar',
-    'LR7' : 'Second lower right molar',
-    'LR8' : 'Third lower right molar',
-    'LL1' : 'First lower left incisor',
-    'LL2' : 'Second lower left incisor',
-    'LL3' : 'lower left canine',
-    'LL4' : 'First lower left premolar',
-    'LL5' : 'Second lower left premolar',
-    'LL6' : 'First lower left molar',
-    'LL7' : 'Second lower left molar',
-    'LL8' : 'Third lower left molar',
+    'UR1': 'Upper right first incisor',
+    'UR2': 'Upper right second incisor',
+    'UR3': 'Upper right canine',
+    'UR4': 'Upper right first premolar',
+    'UR5': 'Upper right second premolar',
+    'UR6': 'Upper right first molar',
+    'UR7': 'Upper right second molar',
+    'UR8': 'Upper right third molar',
+    'UL1': 'Upper left first incisor',
+    'UL2': 'Upper left second incisor',
+    'UL3': 'Upper left canine',
+    'UL4': 'Upper left first premolar',
+    'UL5': 'Upper left second premolar',
+    'UL6': 'Upper left first molar',
+    'UL7': 'Upper left second molar',
+    'UL8': 'Upper left third molar',
+    'LR1': 'Lower right first incisor',
+    'LR2': 'Lower right second incisor',
+    'LR3': 'Lower right canine',
+    'LR4': 'Lower right first premolar',
+    'LR5': 'Lower right second premolar',
+    'LR6': 'Lower right first molar',
+    'LR7': 'Lower right second molar',
+    'LR8': 'Lower right third molar',
+    'LL1': 'Lower left first incisor',
+    'LL2': 'Lower left second incisor',
+    'LL3': 'Lower left canine',
+    'LL4': 'Lower left first premolar',
+    'LL5': 'Lower left second premolar',
+    'LL6': 'Lower left first molar',
+    'LL7': 'Lower left second molar',
+    'LL8': 'Lower left third molar'
     'UA' : 'Upper arch',
     'LA' : 'Lower arch'
 }
@@ -139,7 +139,7 @@ with st.container(height=530):
                 time_required = col_time.number_input(
                     "Time Required (minutes)",
                     min_value=0,
-                    max_value=120,
+                    max_value=300,
                     step=10,
                     key=f"time_{tooth}_denture"
                 )
@@ -181,7 +181,7 @@ with st.container(height=530):
                     time_required = col_time.number_input(
                         "Time Required (minutes)",
                         min_value=0,
-                        max_value=120,
+                        max_value=300,
                         step=10,
                         key=f"time_{tooth}_stab"
                     )
@@ -214,7 +214,7 @@ with st.container(height=530):
                         second_time_required = col_time_2.number_input(
                             "Time Required (minutes)",
                             min_value=0,
-                            max_value=120,
+                            max_value=300,
                             step=10,
                             key=f"second_time_{tooth}"
                         )
@@ -236,7 +236,7 @@ with st.container(height=530):
                     col_treatment_3, col_time_3, col_lab_fee_3, col_cost_3 = st.columns([2, 1, 1, 1])
                     restoration_option = col_treatment_3.selectbox(
                         "Treatment Required",
-                        ["Please select", "Bridge", "Crown", "Filling", "Implant", "Root canal treatment", "Veneer"],
+                        ["Please select", "Bridge", "Complex root canal treatment", "Crown", "Filling", "Implant", "Root canal treatment", "Veneer"],
                         key=f"treatment_{tooth}_rest"
                     )
                     lab_fee_3 = col_lab_fee_3.number_input(
@@ -248,14 +248,14 @@ with st.container(height=530):
                     time_required_3 = col_time_3.number_input(
                         "Time Required (minutes)",
                         min_value=0,
-                        max_value=120,
+                        max_value=300,
                         step=10,
                         key=f"time_{tooth}_rest"
                     )
                     # Determine rate for restoration phase
                     if restoration_option == "Implant":
                         rate = 4000 / 60
-                    elif restoration_option == "Root canal treatment":
+                    elif restoration_option == "Complex root canal treatment":
                         rate = 1000 / 60
                     else:
                         rate = 5.5
@@ -265,7 +265,7 @@ with st.container(height=530):
                     selected_treatments.append(("Restoration Phase", map_tooth_code(tooth), restoration_option, cost_3))
 
                     # Add second treatment option if Root canal treatment is selected
-                    if restoration_option == "Root canal treatment":
+                    if restoration_option in ["Root canal treatment","Complex root canal treatment"]:
                         st.markdown(":blue[• Second Treatment Option]")
                         col_treatment_4, col_time_4, col_lab_fee_4, col_cost_4 = st.columns([2, 1, 1, 1])
                         second_treatment_2 = col_treatment_4.selectbox(
@@ -276,7 +276,7 @@ with st.container(height=530):
                         second_time_required_2 = col_time_4.number_input(
                             "Time Required (minutes)",
                             min_value=0,
-                            max_value=120,
+                            max_value=300,
                             step=10,
                             key=f"second_time_2{tooth}"
                         )
@@ -314,9 +314,9 @@ def display_summary_by_phase(phase, treatments, pdf=None):
         if treatment != "Please select":
             additional_note = ""
             if treatment == "Implant":
-                additional_note = "*Implant prices are estimates and may vary based on case complexity. A detailed exam is needed."
+                additional_note = "*The price given for this item is a rough estimate only. A definitive treatment plan including cost will be issued by the clinician carrying out the treatment following an assessment."
             elif treatment == "Root canal treatment":
-                additional_note = "*Root canal prices are estimates and may vary based on case complexity. A detailed exam is needed."
+                additional_note = "*The price given for this item is a rough estimate only. A definitive treatment plan including cost will be issued by the clinician carrying out the treatment following an assessment."
             if pdf:
                 pdf.cell(200, 10, txt=f"- {tooth_desc}: {treatment} at a cost of £{cost:.2f}", ln=True)
                 if additional_note:
@@ -334,7 +334,7 @@ if selected_treatments:
         if phase_treatments:
             display_summary_by_phase(phase, phase_treatments)
     # Display total cost at the bottom of the summary
-    st.write(f"**Total Cost: £{total_cost:.2f}**")
+    st.write(f"**Total Investment: £{total_cost:.2f}**")
 
 # Create PDF button
 if selected_treatments and st.button("Create PDF",type="primary"):
