@@ -5,7 +5,7 @@ import base64
 # Function to load CSS
 def load_css (file_path):    
     with open (file_path) as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Load the external CSS from the same directory as main.py
 load_css("styles.css")
