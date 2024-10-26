@@ -137,7 +137,7 @@ with st.container(height=530):
             tooth_data = {"Tooth": tooth, "Treatments": []}
             # Check if UA or LA is selected for Denture path
             if tooth in ['UA', 'LA']:
-                st.markdown(f"<div style='font-size:16px; font-weight:bold;'>Treatment for {tooth} ({map_tooth_code(tooth)})</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='font-size:18px; font-weight:bold;'>Treatment for {tooth} ({map_tooth_code(tooth)})</div>", unsafe_allow_html=True)
                 col_treatment, col_time, col_lab_fee, col_cost = st.columns([2, 1, 1, 1])
                 treatment_option = col_treatment.selectbox(
                     "Treatment Required",
@@ -163,7 +163,7 @@ with st.container(height=530):
                 selected_treatments.append(("Rehabilitation Phase", map_tooth_code(tooth), treatment_option, cost))
             else:
                 # Ask if Stabilisation or Restoration Phase is needed for non-denture teeth
-                st.markdown(f"<div style='font-size:16px; font-weight:bold;'>Treatment for {tooth} ({map_tooth_code(tooth)})</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='font-size:18px; font-weight:bold;'>Treatment for {tooth} ({map_tooth_code(tooth)})</div>", unsafe_allow_html=True)
                 stab_yes_no, rest_yes_no, spacey = st.columns([1, 1, 3])
                 stabilisation_required = stab_yes_no.selectbox(
                     f"Stabilisation Phase",
@@ -179,7 +179,7 @@ with st.container(height=530):
                 # Stabilisation Phase
                 if stabilisation_required == "Yes":
                     header_cols = st.columns([1])
-                    header_cols[0].markdown(f"<div style='font-size:14px; font-weight:bold; color: red;'>Stabilisation Phase</div>", unsafe_allow_html=True)
+                    header_cols[0].markdown(f"<div style='font-size:16px; font-weight:bold; color: red;'>Stabilisation Phase</div>", unsafe_allow_html=True)
                     col_treatment, col_time, col_lab_fee, col_cost = st.columns([2, 1, 1, 1])
                     treatment_option = col_treatment.selectbox(
                         "Treatment Required",
@@ -212,7 +212,7 @@ with st.container(height=530):
 
                     # Add second treatment option if Extraction is selected
                     if treatment_option == "Extraction with immediate replacement":
-                        st.markdown(f"<div style='font-size:14px; color: red;'>• Second Treatment Option</div>", unsafe_allow_html=True)
+                        st.markdown(f"<div style='font-size:16px; color: red;'>• Second Treatment Option</div>", unsafe_allow_html=True)
                         col_treatment_2, col_time_2, col_lab_fee_2, col_cost_2 = st.columns([2, 1, 1, 1])
                         second_treatment = col_treatment_2.selectbox(
                             "Treatment Required",
@@ -240,7 +240,7 @@ with st.container(height=530):
                 # Restoration Phase
                 if restoration_required == "Yes":
                     header_cols = st.columns([1])
-                    header_cols[0].markdown(f"<div style='font-size:14px; font-weight:bold; color: blue;'>Restoration Phase</div>", unsafe_allow_html=True)
+                    header_cols[0].markdown(f"<div style='font-size:16px; font-weight:bold; color: blue;'>Restoration Phase</div>", unsafe_allow_html=True)
                     col_treatment_3, col_time_3, col_lab_fee_3, col_cost_3 = st.columns([2, 1, 1, 1])
                     restoration_option = col_treatment_3.selectbox(
                         "Treatment Required",
@@ -274,7 +274,7 @@ with st.container(height=530):
 
                     # Add second treatment option if Root canal treatment is selected
                     if restoration_option in ["Root canal treatment","Complex root canal treatment"]:
-                        st.markdown(f"<div style='font-size:14px; color: blue;'>• Second Treatment Option</div>", unsafe_allow_html=True)
+                        st.markdown(f"<div style='font-size:16px; color: blue;'>• Second Treatment Option</div>", unsafe_allow_html=True)
                         col_treatment_4, col_time_4, col_lab_fee_4, col_cost_4 = st.columns([2, 1, 1, 1])
                         second_treatment_2 = col_treatment_4.selectbox(
                             "Treatment Required",
