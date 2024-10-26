@@ -366,7 +366,7 @@ if selected_treatments and st.button("Create PDF",type="primary"):
             display_summary_by_phase(phase, phase_treatments, pdf=pdf)
             
     pdf.set_font("Arial", style='B', size=12)
-    pdf.cell(200, 10, txt=f"Total Cost: £{total_cost:.2f}", ln=True)
+    pdf.cell(200, 10, txt=f"Total Investment: £{total_cost:.2f}", ln=True)
     
     # Save and preview PDF
     pdf_output = "dental_treatment_plan.pdf"
