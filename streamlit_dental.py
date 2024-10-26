@@ -240,7 +240,7 @@ with st.container(height=530):
                 # Restoration Phase
                 if restoration_required == "Yes":
                     header_cols = st.columns([1])
-                    header_cols[0].markdown(":blue[**Restoration Phase**]")
+                    header_cols[0].markdown(f"<div style='font-size:14px; font-weight:bold; color: blue;'>Restoration Phase</div>", unsafe_allow_html=True)
                     col_treatment_3, col_time_3, col_lab_fee_3, col_cost_3 = st.columns([2, 1, 1, 1])
                     restoration_option = col_treatment_3.selectbox(
                         "Treatment Required",
