@@ -212,7 +212,7 @@ with st.container(height=530):
 
                     # Add second treatment option if Extraction is selected
                     if treatment_option == "Extraction with immediate replacement":
-                        st.markdown(":red[• Second Treatment Option]")
+                        st.markdown(f"<div style='font-size:14px; color: red;'>• Second Treatment Option</div>", unsafe_allow_html=True)
                         col_treatment_2, col_time_2, col_lab_fee_2, col_cost_2 = st.columns([2, 1, 1, 1])
                         second_treatment = col_treatment_2.selectbox(
                             "Treatment Required",
