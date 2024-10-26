@@ -3,12 +3,12 @@ from fpdf import FPDF
 import base64
 
 # Function to load CSS
-def load_css (file_path):    
-    with open (file_path) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+#def load_css (file_path):    
+#    with open (file_path) as f:
+#        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Load the external CSS from the same directory as main.py
-load_css("styles.css")
+#load_css("styles.css")
 
 # Set the page layout to wide mode
 st.set_page_config(layout="wide", page_icon="🪥", page_title="Dental Treatment Plan")
