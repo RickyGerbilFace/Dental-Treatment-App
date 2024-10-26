@@ -274,7 +274,7 @@ with st.container(height=530):
 
                     # Add second treatment option if Root canal treatment is selected
                     if restoration_option in ["Root canal treatment","Complex root canal treatment"]:
-                        st.markdown(":blue[• Second Treatment Option]")
+                        st.markdown(f"<div style='font-size:14px; color: blue;'>• Second Treatment Option</div>", unsafe_allow_html=True)
                         col_treatment_4, col_time_4, col_lab_fee_4, col_cost_4 = st.columns([2, 1, 1, 1])
                         second_treatment_2 = col_treatment_4.selectbox(
                             "Treatment Required",
