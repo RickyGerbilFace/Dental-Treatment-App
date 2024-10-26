@@ -137,7 +137,6 @@ with st.container(height=530):
             tooth_data = {"Tooth": tooth, "Treatments": []}
             # Check if UA or LA is selected for Denture path
             if tooth in ['UA', 'LA']:
-                #st.subheader(f"Treatment for {tooth} ({map_tooth_code(tooth)})")
                 st.markdown(f"<div style='font-size:16px; font-weight:bold;'>Treatment for {tooth} ({map_tooth_code(tooth)})</div>", unsafe_allow_html=True)
                 col_treatment, col_time, col_lab_fee, col_cost = st.columns([2, 1, 1, 1])
                 treatment_option = col_treatment.selectbox(
@@ -164,7 +163,7 @@ with st.container(height=530):
                 selected_treatments.append(("Rehabilitation Phase", map_tooth_code(tooth), treatment_option, cost))
             else:
                 # Ask if Stabilisation or Restoration Phase is needed for non-denture teeth
-                st.subheader(f"Treatment for {tooth} ({map_tooth_code(tooth)})")
+                st.markdown(f"<div style='font-size:16px; font-weight:bold;'>Treatment for {tooth} ({map_tooth_code(tooth)})</div>", unsafe_allow_html=True)
                 stab_yes_no, rest_yes_no, spacey = st.columns([1, 1, 3])
                 stabilisation_required = stab_yes_no.selectbox(
                     f"Stabilisation Phase",
