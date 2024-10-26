@@ -319,8 +319,10 @@ def display_summary_by_phase(phase, treatments, pdf=None):
                 additional_note2 = "issued by the clinician carrying out the treatment following an assessment."
             if pdf:
                 pdf.cell(200, 10, txt=f"- {tooth_desc}: {treatment} at a cost of £{cost:.2f}", ln=True)
-                if additional_note or additional_note2:
+                if additional_note:
                     pdf.cell(200, 10, txt=additional_note, ln=True)
+                if additional_note2:
+                    pdf.cell(200, 10, txt=additional_note2, ln=True)
             else:
                 st.write(f"- **{tooth_desc}**: {treatment} at a cost of £{cost:.2f}{additional_note}")
                 st.write(f"{additional_note2}")
