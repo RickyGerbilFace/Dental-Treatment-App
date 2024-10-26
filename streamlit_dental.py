@@ -179,7 +179,7 @@ with st.container(height=530):
                 # Stabilisation Phase
                 if stabilisation_required == "Yes":
                     header_cols = st.columns([1])
-                    header_cols[0].markdown(":red[**Stabilisation Phase**]")
+                    header_cols[0].markdown(f"<div style='font-size:14px; font-weight:bold; color: red;'>Stabilisation Phase</div>", unsafe_allow_html=True)
                     col_treatment, col_time, col_lab_fee, col_cost = st.columns([2, 1, 1, 1])
                     treatment_option = col_treatment.selectbox(
                         "Treatment Required",
