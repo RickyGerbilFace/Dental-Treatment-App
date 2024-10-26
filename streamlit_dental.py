@@ -314,7 +314,7 @@ def display_summary_by_phase(phase, treatments, pdf=None):
         if treatment != "Please select":
             additional_note = ""
             if treatment in ["Implant","Complex root canal treatment","Complex extraction"]:
-                additional_note = "*The price given for this item is a rough estimate only. A definitive treatment plan including cost will be issued by the clinician carrying out the treatment following an assessment."
+                additional_note = "*The price given for this item is a rough estimate only. A definitive treatment plan including cost will be/nissued by the clinician carrying out the treatment following an assessment."
             if pdf:
                 pdf.cell(200, 10, txt=f"- {tooth_desc}: {treatment} at a cost of £{cost:.2f}", ln=True)
                 if additional_note:
