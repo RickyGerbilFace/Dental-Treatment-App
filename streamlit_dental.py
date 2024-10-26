@@ -175,7 +175,7 @@ with st.container(height=530):
                     col_treatment, col_time, col_lab_fee, col_cost = st.columns([2, 1, 1, 1])
                     treatment_option = col_treatment.selectbox(
                         "Treatment Required",
-                        ["Please select", "Core build up", "Crown removal and core", "Extirpation", "Extraction", "Extraction with immediate replacement", "Permanent filling", "Provisional filling", "Specialist extraction", "Temporary crown"],
+                        ["Please select", "Complex extraction", "Core build up", "Crown removal and core", "Extirpation", "Extraction", "Extraction with immediate replacement", "Permanent filling", "Provisional filling", "Temporary crown"],
                         key=f"treatment_{tooth}_stab"
                     )
                     time_required = col_time.number_input(
@@ -192,7 +192,7 @@ with st.container(height=530):
                         key=f"lab_fee_{tooth}"
                     )
                     # Determine rate for stabiliation phase
-                    if treatment_option == "Specialist extraction":
+                    if treatment_option == "Complex extraction":
                         xla_rate = 400 / 60
                     else:
                         xla_rate = 5.5
@@ -313,9 +313,7 @@ def display_summary_by_phase(phase, treatments, pdf=None):
     for _, tooth_desc, treatment, cost in treatments:
         if treatment != "Please select":
             additional_note = ""
-            if treatment == "Implant":
-                additional_note = "*The price given for this item is a rough estimate only. A definitive treatment plan including cost will be issued by the clinician carrying out the treatment following an assessment."
-            elif treatment == "Root canal treatment":
+            if treatment in ["Implant","Complex root canal treatment","Complex extraction"]:
                 additional_note = "*The price given for this item is a rough estimate only. A definitive treatment plan including cost will be issued by the clinician carrying out the treatment following an assessment."
             if pdf:
                 pdf.cell(200, 10, txt=f"- {tooth_desc}: {treatment} at a cost of £{cost:.2f}", ln=True)
