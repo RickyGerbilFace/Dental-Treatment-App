@@ -38,7 +38,7 @@ tooth_descriptions = {
     'LL5': 'Lower left second premolar',
     'LL6': 'Lower left first molar',
     'LL7': 'Lower left second molar',
-    'LL8': 'Lower left third molar'
+    'LL8': 'Lower left third molar',
     'UA' : 'Upper arch',
     'LA' : 'Lower arch'
 }
